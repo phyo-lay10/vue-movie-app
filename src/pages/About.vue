@@ -41,7 +41,7 @@
           />
           <button
             class="btn rounded text-white"
-            type="submit"
+            type="button"
             style="background-color: #c6361c"
           >
             <i class="fa-regular fa-paper-plane"></i>
