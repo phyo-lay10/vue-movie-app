@@ -1,5 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+  <nav
+    class="navbar navbar-expand-lg sticky-top z-3 shadow-sm"
+    :class="navBgColor"
+  >
     <div class="container-fluid">
       <!-- <RouterLink to="/" class="navbar-brand" href="#">VueFlix</RouterLink> -->
       <router-link
@@ -46,11 +49,12 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
-import { provide, ref } from "vue";
+import { computed, provide, ref } from "vue";
 const movies = ref([
   {
     id: 1,
     title: "IT Chapter2",
+    category: "Action",
     imageSrc: "/images/it.jpg",
     year: 2017,
     isTop: true,
@@ -58,6 +62,7 @@ const movies = ref([
   {
     id: 2,
     title: "IP Man",
+    category: "Action",
     imageSrc: "/images/ipman.jpg",
     year: 2018,
     isTop: true,
@@ -65,6 +70,7 @@ const movies = ref([
   {
     id: 3,
     title: "Iron Man",
+    category: "Action",
     imageSrc: "/images/ironman.jpg",
     year: 2019,
     isTop: true,
@@ -72,6 +78,7 @@ const movies = ref([
   {
     id: 4,
     title: "Turbo",
+    category: "Cartoon",
     imageSrc: "/images/turbo.jpg",
     year: 2023,
     isTop: false,
@@ -79,6 +86,7 @@ const movies = ref([
   {
     id: 5,
     title: "Kunfu Panda",
+    category: "Cartoon",
     imageSrc: "/images/panda.jpg",
     year: 2020,
     isTop: false,
@@ -86,6 +94,7 @@ const movies = ref([
   {
     id: 6,
     title: "Nowhere",
+    category: "Action",
     imageSrc: "/images/Nowhere.jpg",
     year: 2015,
     isTop: false,
@@ -93,6 +102,7 @@ const movies = ref([
   {
     id: 7,
     title: "Concussion",
+    category: "Action",
     imageSrc: "/images/concussion.jpg",
     year: 2022,
     isTop: false,
@@ -100,6 +110,7 @@ const movies = ref([
   {
     id: 8,
     title: "Pele",
+    category: "Action",
     imageSrc: "/images/pele.jpg",
     year: 2010,
     isTop: false,
@@ -107,21 +118,29 @@ const movies = ref([
   {
     id: 9,
     title: "Transformers",
+    category: "Action",
     imageSrc: "/images/transformers.jpg",
     year: 2024,
     isTop: false,
   },
 ]);
 
+const scrollY = ref(0);
+const navBgColor = computed(() => {
+  return scrollY.value > 50 ? "bg-secondary" : "bg-danger";
+});
+window.addEventListener("scroll", () => {
+  scrollY.value = window.scrollY;
+});
 provide("movies", movies);
 </script>
 
 <style scoped>
-nav {
-  /* background-color: #c12a21; */
-  /* background-color: #c6361c; */
+/* nav {
+  background-color: #c12a21;
+  background-color: #c6361c;
   background-color: #c73c1b;
-}
+} */
 h5 {
   color: firebrick;
 }
