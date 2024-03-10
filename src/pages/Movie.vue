@@ -97,9 +97,15 @@
 import { computed, inject } from "vue";
 import { useRoute, useRouter } from "vue-router";
 
+import { useMovieStore } from "./../store/movie";
+import { storeToRefs } from "pinia";
+
+const movieStore = useMovieStore();
+const { movies } = storeToRefs(movieStore);
+
 const route = useRoute();
 const movieId = parseInt(route.params.id);
-const movies = inject("movies");
+// const movies = inject("movies");
 const router = useRouter();
 
 const movie = computed(() => {

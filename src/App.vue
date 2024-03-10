@@ -45,85 +45,90 @@
   </nav>
 
   <router-view></router-view>
+  <div class="text-center pt-2 pb-0 border">
+    <p class="fw-bold"><i>All rights reserved !</i></p>
+  </div>
 </template>
 
 <script setup>
 import { RouterLink } from "vue-router";
 import { computed, provide, ref } from "vue";
-const movies = ref([
-  {
-    id: 1,
-    title: "IT Chapter2",
-    category: "Action",
-    imageSrc: "/images/it.jpg",
-    year: 2017,
-    isTop: true,
-  },
-  {
-    id: 2,
-    title: "IP Man",
-    category: "Action",
-    imageSrc: "/images/ipman.jpg",
-    year: 2018,
-    isTop: true,
-  },
-  {
-    id: 3,
-    title: "Iron Man",
-    category: "Action",
-    imageSrc: "/images/ironman.jpg",
-    year: 2019,
-    isTop: true,
-  },
-  {
-    id: 4,
-    title: "Turbo",
-    category: "Cartoon",
-    imageSrc: "/images/turbo.jpg",
-    year: 2023,
-    isTop: false,
-  },
-  {
-    id: 5,
-    title: "Kunfu Panda",
-    category: "Cartoon",
-    imageSrc: "/images/panda.jpg",
-    year: 2020,
-    isTop: false,
-  },
-  {
-    id: 6,
-    title: "Nowhere",
-    category: "Action",
-    imageSrc: "/images/Nowhere.jpg",
-    year: 2015,
-    isTop: false,
-  },
-  {
-    id: 7,
-    title: "Concussion",
-    category: "Action",
-    imageSrc: "/images/concussion.jpg",
-    year: 2022,
-    isTop: false,
-  },
-  {
-    id: 8,
-    title: "Pele",
-    category: "Action",
-    imageSrc: "/images/pele.jpg",
-    year: 2010,
-    isTop: false,
-  },
-  {
-    id: 9,
-    title: "Transformers",
-    category: "Action",
-    imageSrc: "/images/transformers.jpg",
-    year: 2024,
-    isTop: false,
-  },
-]);
+
+// const movies = ref([
+//   {
+//     id: 1,
+//     title: "IT Chapter2",
+//     category: "Action",
+//     imageSrc: "/images/it.jpg",
+//     year: 2017,
+//     isTop: true,
+//   },
+//   {
+//     id: 2,
+//     title: "IP Man",
+//     category: "Action",
+//     imageSrc: "/images/ipman.jpg",
+//     year: 2018,
+//     isTop: true,
+//   },
+//   {
+//     id: 3,
+//     title: "Iron Man",
+//     category: "Action",
+//     imageSrc: "/images/ironman.jpg",
+//     year: 2019,
+//     isTop: true,
+//   },
+//   {
+//     id: 4,
+//     title: "Turbo",
+//     category: "Cartoon",
+//     imageSrc: "/images/turbo.jpg",
+//     year: 2023,
+//     isTop: false,
+//   },
+//   {
+//     id: 5,
+//     title: "Kunfu Panda",
+//     category: "Cartoon",
+//     imageSrc: "/images/panda.jpg",
+//     year: 2020,
+//     isTop: false,
+//   },
+//   {
+//     id: 6,
+//     title: "Nowhere",
+//     category: "Action",
+//     imageSrc: "/images/Nowhere.jpg",
+//     year: 2015,
+//     isTop: false,
+//   },
+//   {
+//     id: 7,
+//     title: "Concussion",
+//     category: "Action",
+//     imageSrc: "/images/concussion.jpg",
+//     year: 2022,
+//     isTop: false,
+//   },
+//   {
+//     id: 8,
+//     title: "Pele",
+//     category: "Action",
+//     imageSrc: "/images/pele.jpg",
+//     year: 2010,
+//     isTop: false,
+//   },
+//   {
+//     id: 9,
+//     title: "Transformers",
+//     category: "Action",
+//     imageSrc: "/images/transformers.jpg",
+//     year: 2024,
+//     isTop: false,
+//   },
+// ]);
+// provide("movies", movies);
 
 const scrollY = ref(0);
 const navBgColor = computed(() => {
@@ -132,7 +137,6 @@ const navBgColor = computed(() => {
 window.addEventListener("scroll", () => {
   scrollY.value = window.scrollY;
 });
-provide("movies", movies);
 </script>
 
 <style scoped>
